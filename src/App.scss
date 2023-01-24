@@ -1,0 +1,15 @@
+@import "./styles/utilities/variables";
+@import "./styles/utilities/loading";
+@import "./styles/utilities/mixins";
+
+@import "./styles/base/reset";
+@import "./styles/base/typography";
+
+@import "./styles/components/header";
+@import "./styles/components/footer";
+
+@import "./styles/pages/home";
+@import "./styles/pages/about";
+@import "./styles/pages/coinWatchlist";
+@import "./styles/pages/singleCrypto";
+
