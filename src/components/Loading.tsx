@@ -1,6 +1,7 @@
 export{}
 
 const Loading = () => {
+    
     return (
         <section className='loader'></section>
     )

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Loading from "../components/Loading";
 import { CoinMarketList } from "../config/apiConfig";
 
 interface Coin {
@@ -46,7 +47,24 @@ const Home = () => {
     
     return (
         <section className='home'>
-
+            { isLoaded ? coinData.map((coin,i) => {
+              return (
+              <section key={i} className={`${coin.name} crypto`}>
+                <figure>
+                  <img src={coin.image} alt={coin.name} />
+                  <figcaption>{coin.name}</figcaption>
+                </figure>
+                <p>{coin.market_cap_rank}</p>
+                <h2>{coin.name}</h2>
+                <p>{coin.symbol}</p>
+                <p>{coin.current_price}</p>
+                <p>{coin.price_change_percentage_24h}</p>
+              </section>
+              )
+            })
+            :
+            <Loading />
+            }
         </section>
     )
 }
