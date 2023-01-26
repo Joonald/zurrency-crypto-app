@@ -19,7 +19,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={ <Home />}/>
           <Route path='/about' element={ <About />}/>
-          <Route path='/coin-watchlist' element={ <CoinWatchList />}/>
+          <Route path='/watchlist' element={ <CoinWatchList />}/>
           <Route path='/single-crypto/:symbol' element={ <SingleCrypto />}/>
         </Routes>
 
