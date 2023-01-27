@@ -39,14 +39,13 @@ const Home = () => {
       const data = await list.json()
       setData(data)
       setLoaded(true)
-    }
-    else {
+    } else {
       setLoaded(false)
     }
    }
    getData();
   }, [])
-    
+  
     return (
         <section className='home'>
             { isLoaded ? coinData.map((coin,i) => {

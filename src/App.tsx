@@ -1,5 +1,6 @@
 import './App.scss';
 import Header from './components/Header';
+import MarketData from './components/MarketData';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -15,6 +16,7 @@ const App = () => {
       <div className="site-wrapper">
 
       <Header title='Zurrency'/>
+      <MarketData />
 
         <Routes>
           <Route path='/' element={ <Home />}/>
