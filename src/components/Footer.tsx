@@ -4,7 +4,7 @@ const Footer = ( {creator}: FooterProps ) => {
     
     return (
         <footer>
-            <article>Designed & Built by {creator}</article>
+            <article>Designed & Built by <a href="www.jonnynguyen,com">{creator}</a></article>
         </footer>
     )
 }

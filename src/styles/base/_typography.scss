@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
 a {
   text-decoration: none;
+  color: white;
 }
 
 a:visited,
@@ -9,6 +10,7 @@ a:active {
 }
 
 body {
+  color: white;
   background-color: $bg-color;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
