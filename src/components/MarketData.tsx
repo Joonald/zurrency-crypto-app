@@ -16,7 +16,8 @@ interface IMarketData {
 
 const MarketData = () => {
     const [marketData, setMarketData] = useState<IMarketData>(
-        {   data: {
+        {   
+            data: {
             active_cryptocurrencies: 0,
             total_market_cap: {
                 usd: 0,
@@ -30,8 +31,8 @@ const MarketData = () => {
     );
     const [isLoaded, setLoaded] = useState<boolean>(false);
 
-    useEffect( ()=> {
-        async function getData() {
+    useEffect( () => {
+        const getData = async () => {
             const res = await fetch(CoinMarketData);
             if (res.ok) {
                 const result = await res.json()

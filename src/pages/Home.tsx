@@ -32,8 +32,8 @@ const Home = () => {
     const [coinData, setData] = useState<ICoin['Coin']>([]);
     const [isLoaded, setLoaded] = useState<boolean>(false);
 
-  useEffect( ()=> {
-   async function getData() {
+  useEffect( () => {
+   const getData = async () => {
     const list = await fetch(CoinMarketList);
     if ( list.ok ) {
       const data = await list.json()
