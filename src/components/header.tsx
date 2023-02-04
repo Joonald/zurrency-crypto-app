@@ -1,3 +1,4 @@
+import { useState, MouseEvent } from "react";
 import { NavLink } from "react-router-dom";
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
@@ -12,14 +13,14 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 
 
-const pages = ['watchlist', 'about'];
+const pages = ['Watchlist', 'About'];
 
 type HeaderProps = { title: string }
 
 function Header( {title}: HeaderProps) {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenNavMenu = (event: MouseEvent<HTMLButtonElement>) => {
     setAnchorElNav(event.currentTarget);
   };
 
@@ -105,7 +106,7 @@ function Header( {title}: HeaderProps) {
                 <MenuItem onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">
                     <NavLink to='/'>
-                        Hi
+                        Home
                     </NavLink>
                   </Typography>
                 </MenuItem>

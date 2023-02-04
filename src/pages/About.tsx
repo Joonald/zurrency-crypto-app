@@ -3,9 +3,12 @@ export{}
 const About = () => {
 
     return (
-        <section className='about'>
+        <main>
+            <section className='about'>
 
-        </section>
+            </section>
+        </main>
+       
     )
 }
 

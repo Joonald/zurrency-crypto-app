@@ -3,9 +3,12 @@ export{}
 const SingleCrypto = () => {
 
     return (
-        <section className='single-crypto'>
+        <main>
+            <section className='single-crypto'>
 
-        </section>
+            </section>
+        </main>
+        
     )
 }
 
