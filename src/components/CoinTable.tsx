@@ -60,24 +60,22 @@ const CoinTable = ()  => {
                         </TableRow>
                     </TableHead>
                     <TableBody sx={{backgroundColor: '#4F4C9E'}}>
-                        {coinData.map((coin, i) =>{
+                        {coinData.map((coin: ICoin, i) =>{
                             return (
-                                <>
                                 <TableRow className={`${coin.name}`} key={i}>
-                                    <TableCell className={`coin-image ${coin.symbol}`} sx={{backgroundColor: 'transparent', padding: 0, borderBottom: 0}}>
+                                    <TableCell align='center' className={`coin-image ${coin.symbol}`} sx={{backgroundColor: 'transparent', padding: 0, borderBottom: 0}}>
                                         <img src={coin.image} alt={coin.name} />
                                     </TableCell>
-                                    <TableCell sx={{borderBottom: 0}}>
+                                    <TableCell align='center' sx={{borderBottom: 0}}>
                                         <p>{coin.name}</p>
                                     </TableCell>
-                                    <TableCell sx={{borderBottom: 0}}>
+                                    <TableCell align='center' sx={{borderBottom: 0}}>
                                         <p>${coin.current_price.toLocaleString()}</p>
                                     </TableCell>
-                                    <TableCell sx={{borderBottom: 0}}>
+                                    <TableCell align='center' sx={{borderBottom: 0}}>
                                         <p><span style={coin.price_change_percentage_24h > 0 ? {color: '#05FF00'} : {color: 'red'}}>{coin.price_change_percentage_24h.toPrecision(3)}%</span></p>
                                     </TableCell>
                                 </TableRow>
-                                </>
                             )
                         })}
                     </TableBody>
