@@ -1,0 +1,28 @@
+.coin-image {
+    height: auto;
+    position: absolute;
+    left: .5rem;
+    z-index: -1;
+}
+
+td {
+    color: white !important;
+}
+
+img {
+    height: auto;
+    width: 50px;
+}
+
+.MuiTableRow-root td:nth-child(2),
+.MuiTableRow-root th:first-child{
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.MuiTableRow-root td:last-child,
+.MuiTableRow-root th:last-child {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
