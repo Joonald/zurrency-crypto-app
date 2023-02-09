@@ -68,7 +68,7 @@ const CoinTable = ()  => {
                                         <img src={coin.image} alt={coin.name} />
                                     </TableCell>
                                     <TableCell sx={{borderBottom: 0}}>
-                                        <h3>{coin.name}</h3>
+                                        <p>{coin.name}</p>
                                     </TableCell>
                                     <TableCell sx={{borderBottom: 0}}>
                                         <p>${coin.current_price.toLocaleString()}</p>
