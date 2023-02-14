@@ -49,9 +49,12 @@ const CoinTable = ()  => {
 
     return (
         <Container sx={{textAlign: 'center'}}>
-            <Typography variant="h2" sx={{textAlign: 'left', fontSize: '1.5rem'}}>Today's Cryptocurrency Prices by Market Cap</Typography>
+            <Typography variant="h2" sx={{textAlign: 'left',fontSize: '1.5rem'}}>Today's Cryptocurrency Prices by Market Cap</Typography>
+
             <TableContainer component={Paper} sx={{ marginTop: '1rem', marginLeft: 'auto', width: '90%', backgroundColor: 'transparent', boxShadow: 0}}>
+
                 <Table aria-label="simple table" sx={{borderCollapse: 'separate', borderSpacing: '0 2rem', borderRadius: '15%'}}>
+                    
                     <TableHead sx={{marginBottom: '1rem', backgroundColor: '#4F4C9E'}}>
                         <TableRow sx={{borderRadius: '30px'}}>
                             <TableCell colSpan={2} align='center' sx={{color: 'white', borderBottom: 0}}>Name</TableCell>
@@ -59,6 +62,7 @@ const CoinTable = ()  => {
                             <TableCell align='center' sx={{color: 'white', borderBottom: 0}}>24h%</TableCell>
                         </TableRow>
                     </TableHead>
+
                     <TableBody sx={{backgroundColor: '#4F4C9E'}}>
                         {coinData.map((coin: ICoin, i) =>{
                             return (
@@ -79,7 +83,9 @@ const CoinTable = ()  => {
                             )
                         })}
                     </TableBody>
+
                 </Table>
+                
             </TableContainer>
         </Container>
     )

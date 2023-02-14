@@ -47,7 +47,7 @@ function Header( {title}: HeaderProps) {
               textDecoration: 'none',
             }}
           >
-            {title}
+          {title}
           </Typography>
 
           <Typography
