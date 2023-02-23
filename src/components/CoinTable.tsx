@@ -1,7 +1,6 @@
 import { Container, TableContainer, Typography, TableHead, TableRow, TableCell, Paper, Table, TableBody } from "@mui/material";
 import { useState, useEffect } from "react";
 import { CoinMarketList } from "../config/apiConfig";
-import Loading from "./Loading";
 
 interface ICoin {
     id: string;
@@ -50,7 +49,7 @@ const CoinTable = ()  => {
   console.log(coinData);
 
     return (
-        <Container sx={{ textAlign: 'center', width: '97%', paddingRight: 0, paddingLeft: '1.75rem' }}>
+        <Container sx={{ textAlign: 'center', width: '97%', paddingRight: 0, paddingLeft: '1.75rem', marginRight: '.5rem' }}>
             <Typography
             variant="h2"
             sx={{ textAlign: 'left', fontSize: '1.5rem'} }
@@ -104,9 +103,7 @@ const CoinTable = ()  => {
                             )
                         })}
                     </TableBody>
-
                 </Table>
-                
             </TableContainer>
         </Container>
     )
