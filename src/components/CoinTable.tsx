@@ -1,4 +1,4 @@
-import { Container, TableContainer, Typography, TableHead, TableRow, TableCell, CardActionArea, Paper, Table, TableBody } from "@mui/material";
+import { Container, TableContainer, Typography, TableHead, TableRow, TableCell, Paper, Table, TableBody } from "@mui/material";
 import { useState, useEffect } from "react";
 import { CoinMarketList } from "../config/apiConfig";
 import Loading from "./Loading";
@@ -47,37 +47,58 @@ const CoinTable = ()  => {
    getData();
   }, [])
 
+  console.log(coinData);
+
     return (
-        <Container sx={{textAlign: 'center'}}>
-            <Typography variant="h2" sx={{textAlign: 'left',fontSize: '1.5rem'}}>Today's Cryptocurrency Prices by Market Cap</Typography>
+        <Container sx={{ textAlign: 'center', width: '97%', paddingRight: 0, paddingLeft: '1.75rem' }}>
+            <Typography
+            variant="h2"
+            sx={{ textAlign: 'left', fontSize: '1.5rem'} }
+            >
+            Today's Cryptocurrency Prices by Market Cap
+            </Typography>
 
-            <TableContainer component={Paper} sx={{ marginTop: '1rem', marginLeft: 'auto', width: '90%', backgroundColor: 'transparent', boxShadow: 0}}>
+            <TableContainer
+            component={Paper}
+            sx={{ marginLeft: 'auto', backgroundColor: 'transparent', boxShadow: 0, overflowX: 'visible' }}
+            >
 
-                <Table aria-label="simple table" sx={{borderCollapse: 'separate', borderSpacing: '0 2rem', borderRadius: '15%'}}>
+                <Table
+                aria-label="simple table"
+                sx={{ borderCollapse: 'separate', borderSpacing: '0 2rem', borderRadius: '15%' }}
+                >
                     
-                    <TableHead sx={{marginBottom: '1rem', backgroundColor: '#4F4C9E'}}>
-                        <TableRow sx={{borderRadius: '30px'}}>
-                            <TableCell colSpan={2} align='center' sx={{color: 'white', borderBottom: 0}}>Name</TableCell>
-                            <TableCell align='center' sx={{color: 'white', borderBottom: 0}}>Price</TableCell>
-                            <TableCell align='center' sx={{color: 'white', borderBottom: 0}}>24h%</TableCell>
+                    <TableHead sx={{ marginBottom: '1rem', backgroundColor: '#4F4C9E' }}>
+                        <TableRow sx={{ borderRadius: '30px' }}>
+                            <TableCell align='center' sx={{ color: 'white', borderBottom: 0 }}>
+                                Name
+                            </TableCell>
+                            <TableCell align='center' sx={{ color: 'white', borderBottom: 0 }}>
+                                Price
+                            </TableCell>
+                            <TableCell align='center' sx={{ color: 'white', borderBottom: 0 }}>
+                                24h%
+                            </TableCell>
                         </TableRow>
                     </TableHead>
 
-                    <TableBody sx={{backgroundColor: '#4F4C9E'}}>
+                    <TableBody sx={{ backgroundColor: '#4F4C9E' }}>
                         {coinData.map((coin: ICoin, i) =>{
                             return (
-                                <TableRow className={`${coin.name}`} key={i}>
-                                    <TableCell align='center' className={`coin-image ${coin.symbol}`} sx={{backgroundColor: 'transparent', padding: 0, borderBottom: 0}}>
-                                        <img src={coin.image} alt={coin.name} />
-                                    </TableCell>
-                                    <TableCell align='center' sx={{borderBottom: 0}}>
+                                <TableRow className={`${coin.name} coin`} key={i}>
+                                    <TableCell className='coin-name' align='center' sx={{ borderBottom: 0 }}>
+                                        <img src={coin.image} alt={coin.name} className={`coin-image ${coin.symbol}`}/>
+                                        <span className='market-rank'>{coin.market_cap_rank}</span>
                                         <p>{coin.name}</p>
                                     </TableCell>
-                                    <TableCell align='center' sx={{borderBottom: 0}}>
+                                    <TableCell align='center' sx={{ borderBottom: 0 }}>
                                         <p>${coin.current_price.toLocaleString()}</p>
                                     </TableCell>
-                                    <TableCell align='center' sx={{borderBottom: 0}}>
-                                        <p><span style={coin.price_change_percentage_24h > 0 ? {color: '#05FF00'} : {color: 'red'}}>{coin.price_change_percentage_24h.toPrecision(3)}%</span></p>
+                                    
+                                    <TableCell align='center' sx={{ borderBottom: 0 }}>
+                                        <p><span style={coin.price_change_percentage_24h > 0 ? {color: '#05FF00'} : {color: 'red'}}>
+                                            {coin.price_change_percentage_24h.toPrecision(3)}%
+                                        </span></p>
                                     </TableCell>
                                 </TableRow>
                             )
