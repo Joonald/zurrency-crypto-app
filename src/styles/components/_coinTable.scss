@@ -1,8 +1,4 @@
 .coin-image {
-    height: auto;
-    position: absolute;
-    top: 0;
-    right: 80%;
     max-width: 45px;
     height: auto;
 }
@@ -30,7 +26,9 @@
 td {
     color: white !important;
 }
-
+.MuiTableRow-root td:first-child {
+    position: relative;
+}
 // line 16 to line 27 adds rounded borders to the table rows for the coin table
 .MuiTableRow-root td:first-child,
 .MuiTableRow-root th:first-child{
