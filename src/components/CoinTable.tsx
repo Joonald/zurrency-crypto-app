@@ -1,8 +1,9 @@
 import { Container, TableContainer, Typography, TableHead, TableRow, TableCell, Paper, Table, TableBody, Box, LinearProgress } from "@mui/material";
 import { useState, useEffect } from "react";
 import { CoinMarketList } from "../config/apiConfig";
+import { useNavigate } from "react-router-dom";
 
-interface ICoin {
+export interface ICoin {
     id: string;
     symbol: string;
     name: string;
@@ -28,12 +29,11 @@ interface ICoin {
     price_change_percentage_30d_in_currency: number;
   }
 
-
-
 const CoinTable = ()  => {
     const [coinData, setData] = useState<ICoin[]>([]);
     const [isLoaded, setLoaded] = useState<boolean>(false);
-
+    const navigate = useNavigate();
+    
     useEffect( () => {
         const getData = async () => {
         const res = await fetch(CoinMarketList);
@@ -95,14 +95,14 @@ const CoinTable = ()  => {
                     </TableHead>
 
                     <TableBody sx={{ backgroundColor: '#4F4C9E' }}>
-                        {coinData.map((coin: ICoin, i) =>{
+                        {coinData.map((coin: ICoin) =>{
                             return (
-                                <TableRow className={`${coin.name} coin`} key={i} sx={{overflowX: 'visible'}}>
+                                <TableRow className={`${coin.name} coin`} key={coin.id} sx={{overflowX: 'visible'}} onClick={ () => {navigate(`/single-crypto/${coin.id}`)}}>
                                     <TableCell align='left' sx={{ borderBottom: 0 }}>
-                                        <img src={coin.image} alt={coin.name} className={`coin-image ${coin.symbol}`}/>
-                                        <span className='market-rank'>{coin.market_cap_rank}</span>
+                                        <img src={coin.image} alt={coin.name} className={`coinImage ${coin.symbol}`}/>
+                                        <span className='marketRank'>{coin.market_cap_rank}</span>
                                     </TableCell>
-                                    <TableCell className='coin-name' align='left' sx={{ borderBottom: 0 }}>
+                                    <TableCell className='coinName' align='left' sx={{ borderBottom: 0 }}>
                                         <p>{coin.name}</p>
                                     </TableCell>
                                     <TableCell align='right' sx={{ borderBottom: 0 }}>

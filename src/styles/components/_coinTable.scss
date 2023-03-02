@@ -1,18 +1,13 @@
-.coin-image {
+.coinImage {
     max-width: 45px;
     height: auto;
 }
 
-.coin-name {
+.coinName {
     position: relative;
 }
 
-.coin-symbol {
-    font-size: .7rem;
-    color: lightgray;
-}
-
-.market-rank {
+.marketRank {
     font-size: .65rem;
     font-weight: 700;
     padding: .25rem .5rem;
@@ -40,9 +35,4 @@ td {
 .MuiTableRow-root th:last-child {
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-}
-
-
-@media (max-width: 355px) {
-    
 }

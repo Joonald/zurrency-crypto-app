@@ -22,7 +22,7 @@ const App = () => {
           <Route path='/' element={ <Home />}/>
           <Route path='/about' element={ <About />}/>
           <Route path='/watchlist' element={ <CoinWatchList />}/>
-          <Route path='/single-crypto/:symbol' element={ <SingleCrypto />}/>
+          <Route path='/single-crypto/:id' element={ <SingleCrypto />}/>
         </Routes>
 
       <Footer creator='Jonny Nguyen'/>

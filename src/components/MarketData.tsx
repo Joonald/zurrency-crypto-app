@@ -63,20 +63,20 @@ const MarketData = () => {
                 xs={0} sm={0} md={3} 
                 sx={{display: {xs: 'none', sm: 'none', md: 'block'}}}
                 >
-                    <p>Cryptos: <span className='market-text'>{marketData.data.active_cryptocurrencies.toLocaleString()}</span></p>
+                    <p>Cryptos: <span className='marketText'>{marketData.data.active_cryptocurrencies.toLocaleString()}</span></p>
                 </Grid>
                 <Grid 
                 item 
                 xs={12} sm={6} md={3}
                 >
-                    <p>Market Cap: <span className='market-text'>${marketData.data.total_market_cap.usd.toLocaleString()}</span></p>
+                    <p>Market Cap: <span className='marketText'>${marketData.data.total_market_cap.usd.toLocaleString()}</span></p>
                 </Grid>
                 <Grid 
                 item 
                 xs={0} sm={6} md={3} 
                 sx={{display: {xs: 'none', sm: 'block'}}}
                 >
-                    <p>Total Volume: <span className='market-text'>${marketData.data.total_volume.usd.toLocaleString()}
+                    <p>Total Volume: <span className='marketText'>${marketData.data.total_volume.usd.toLocaleString()}
                     </span></p>
                 </Grid>
                 <Grid 

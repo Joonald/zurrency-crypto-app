@@ -4,7 +4,7 @@ const CoinWatchList = () => {
 
     return (
         <main>
-            <section className='coin-watchlist'>
+            <section className='coinWatchList'>
                 <h2>Coin Watchlist</h2>
             </section>
         </main>
