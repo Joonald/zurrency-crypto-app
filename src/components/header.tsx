@@ -13,7 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 
 const pages = ['Watchlist', 'About'];
 
-type HeaderProps = { title: string }
+type HeaderProps = { title: string };
 
 function Header( {title}: HeaderProps) {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
