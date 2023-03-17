@@ -1,6 +1,13 @@
-import { Grid, Box, LinearProgress } from "@mui/material"
-import { useEffect, useState } from "react"
-import { CoinMarketData } from "../config/apiConfig"
+import { 
+    Grid, 
+    Box, 
+    LinearProgress 
+} from "@mui/material";
+import { 
+    useEffect, 
+    useState 
+} from "react";
+import { CoinMarketData } from "../config/ApiConfig";
 
 interface IMarketData {
     data: {

@@ -1,6 +1,20 @@
-import { Container, TableContainer, Typography, TableHead, TableRow, TableCell, Paper, Table, TableBody, Box, LinearProgress } from "@mui/material";
-import { useState, useEffect } from "react";
-import { CoinMarketList } from "../config/apiConfig";
+import { 
+    Container,
+    TableContainer,
+    Typography, 
+    TableHead, 
+    TableRow, 
+    TableCell, 
+    Paper, Table, 
+    TableBody, 
+    Box, 
+    LinearProgress 
+} from "@mui/material";
+import { 
+    useState, 
+    useEffect 
+} from "react";
+import { CoinMarketList } from "../config/ApiConfig";
 import { useNavigate } from "react-router-dom";
 
 export interface ICoin {
@@ -39,16 +53,14 @@ const CoinTable = ()  => {
         const res = await fetch(CoinMarketList);
         if ( res.ok ) {
             const result = await res.json()
-            setData(result)
-            setLoaded(true)
+            setData(result);
+            setLoaded(true);
         } else {
-            setLoaded(false)
+            setLoaded(false);
         }
    }
    getData();
   }, [])
-
-  console.log(coinData);
 
     return (
         <>

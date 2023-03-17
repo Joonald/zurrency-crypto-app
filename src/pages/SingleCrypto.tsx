@@ -1,11 +1,13 @@
-import { useEffect, useState} from "react";
+import { 
+    useEffect,
+    useState
+    } from "react";
 import { useParams } from "react-router-dom";
 import CoinInfo from "../components/CoinInfo";
-import { SingleCoinData } from "../config/apiConfig";
+import { SingleCoinData } from "../config/ApiConfig";
 
-type CoinParam = {
-    id: any;
-}
+type CoinParam = string;
+
 export interface ISingleCoin {
     id: string,
     symbol: string,
@@ -99,7 +101,6 @@ const SingleCrypto = () => {
             circulating_supply: 0,
         }
     );
-        console.log(coinData.links.homepage)
     const [isLoaded, setLoaded] = useState<boolean>(false);
 
     useEffect( () => {
@@ -107,14 +108,14 @@ const SingleCrypto = () => {
             const res = await fetch(SingleCoinData(id));
             if ( res.ok ) {
                 const result = await res.json();
-                setData(result)
-                setLoaded(true)
+                setData(result);
+                setLoaded(true);
             } else {
-                setLoaded(false)
+                setLoaded(false);
             }
         }
         getData();
-    }, [id])
+    }, [id]);
 
     return (
         <main>
