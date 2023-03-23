@@ -3,11 +3,34 @@ import {
     useState
 } from "react";
 import { CoinHistoryChart } from "../config/ApiConfig";
+import {
+    Chart as ChartJs,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Filler,
+    Legend
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
+
+ChartJs.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Filler,
+    Legend
+  );
 
 interface IHistoricData {
-    prices: [],
-    market_cap: [],
-    total_volume: []
+    prices: number[][],
+    market_cap: number[][],
+    total_volume: number[][],
 }
 
 type CoinID = {
@@ -17,12 +40,18 @@ type CoinID = {
 const CoinChart = ( {id}: CoinID ) => {
     const [historicData, setHistoricData] = useState<IHistoricData>(
         {
-            prices: [],
-            market_cap: [],
-            total_volume: [],
+            prices: [
+                
+            ],
+            market_cap: [
+                
+            ],
+            total_volume: [
+
+            ],
         }
     );
-    const [days, setDays] = useState<number>(1);
+    const [days, setDays] = useState<number | string>('max');
     const [isLoaded, setLoaded] = useState<boolean>(false);
     
     useEffect( () => {
@@ -39,10 +68,47 @@ const CoinChart = ( {id}: CoinID ) => {
         getData();
     },[ id, days ]);
 
-    console.log(historicData);
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top' as const,
+            },
+            title: {
+                display: false,
+            }
+        },
+        elements: {
+            point: {
+                radius: 2,
+            }
+        }
+    };
+
+    const data = {
+        labels: historicData.prices.map( (coin) => {
+            let date = new Date(coin[0]);
+            let time = 
+                date.getHours() > 12
+                ? `${date.getHours() - 12}:${date.getMinutes()} PM`
+                : `${date.getHours()}:${date.getMinutes()} AM`;
+
+        return days === 1 ? time : date.toLocaleTimeString();
+        }),
+        datasets: [
+            {
+                fill: true,
+                data: historicData.prices.map( (coin) => coin[1] ),
+                borderColor: '#7E47C9',
+                backgroundColor: '#12132D',
+                label: `Price (Past ${days}) days`,
+            }
+        ],
+    }
 
     return(
         <>
+        <Line options={options} data={data} />
         </>
     )
 }
