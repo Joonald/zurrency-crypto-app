@@ -3,6 +3,7 @@ import {
     useState
 } from "react";
 import { CoinHistoryChart } from "../config/ApiConfig";
+import SortButton from "../components/SortButton";
 import {
     Chart as ChartJs,
     CategoryScale,
@@ -53,6 +54,10 @@ const CoinChart = ( {id}: CoinID ) => {
     );
     const [days, setDays] = useState<number | string>('max');
     const [isLoaded, setLoaded] = useState<boolean>(false);
+    const sortDays: (string|number)[] = [1,7,30,60,180,365, 'max']
+    const handleClick = (value: number | string) => {
+        setDays(value)
+    };
     
     useEffect( () => {
         const getData = async () => {
@@ -109,6 +114,11 @@ const CoinChart = ( {id}: CoinID ) => {
     return(
         <>
         <Line options={options} data={data} />
+        {sortDays.map((day => {
+            return (
+            <SortButton handleClick={handleClick} value={day}></SortButton>
+            )
+        }))}
         </>
     )
 }
