@@ -1,11 +1,13 @@
-type TValue = string | number;
-type handleClick = Function;
+type ButtonProps = {
+    day: string | number,
+    handleClick: Function,
+}
 
-const SortButton = (value: TValue, handleClick: handleClick) => {
+const SortButton = ( {day, handleClick}: ButtonProps ) => {
     return (
         <>
-        <button value={value} type='button' name='days' onClick={() => handleClick(value)}>
-            {value} days
+        <button value={day} type='button' name='days' onClick={() => handleClick(day)}>
+            {day} days
         </button>
         </>
     )

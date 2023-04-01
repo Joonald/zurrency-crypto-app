@@ -116,7 +116,7 @@ const CoinChart = ( {id}: CoinID ) => {
         <Line options={options} data={data} />
         {sortDays.map((day => {
             return (
-            <SortButton handleClick={handleClick} value={day}></SortButton>
+            <SortButton handleClick={handleClick} day={day}></SortButton>
             )
         }))}
         </>
